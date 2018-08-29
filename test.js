@@ -1,4 +1,4 @@
-const picasso = require('./index');
+const picasso = require('./src/index');
 
 
 const result = picasso.chart({

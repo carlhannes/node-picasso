@@ -15,6 +15,7 @@
     "@babel/preset-env": "^7.0.0",
     "babel-loader": "^8.0.0",
     "canvas-prebuilt": "^2.0.0-alpha.13",
+    "canvas-webworker": "0.0.2",
     "jsdom": "^12.0.0",
     "picasso.js": "^0.12.2",
     "vm-shim": "0.0.6",

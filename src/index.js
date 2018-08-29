@@ -1,4 +1,4 @@
-const canvas = require('canvas-prebuilt');
+const { Canvas } = require('canvas-webworker');
 const { JSDOM } = require('jsdom');
 const vm = require('vm-shim');
 
@@ -8,12 +8,13 @@ const picasso = fs.readFileSync('./node_modules/picasso.js/dist/picasso.js', 'ut
 module.exports = {
     chart: (args) => {
         const dom = new JSDOM(`<!DOCTYPE html><chart></chart>`);
+        const canvas = new Canvas(500, 500);
         let mockglobal = {};
         let window;
         let document;
 
         window = dom.window;
-        dom.window.CanvasRenderingContext2D = canvas;
+        dom.window.CanvasRenderingContext2D = canvas.getContext('2d');
         document = window.document;
         const element = document.querySelector('chart');
 
