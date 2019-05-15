@@ -30,14 +30,14 @@ module.exports = {
             return {
                 x: 0,
                 y: 0,
-                width: 500,
-                height: 500
+                width: args && args.element && args.element.width || 500,
+                height: args && args.element && args.element.height || 500
             };
         };
 
-        args.element = element;
-
-        mockglobal.args = args;
+        const picarg = Object.assign({}, args);
+        picarg.element = element;
+        mockglobal.args = picarg;
 
         vm.runInContext(`${picasso}`, mockglobal);
         mockglobal.picasso = mockglobal.window.picasso;

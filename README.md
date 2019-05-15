@@ -11,7 +11,14 @@ Check out `test.js` but essentially in a node-env you would do this
 ```js
 const picasso = require('node-picasso');
 
-const result = picasso.chart({ /* your options here */ }); 
+const result = picasso.chart({ 
+    settings: {}, /* your settings here */ 
+    data: {}, /* data here as usual */
+    element: { /* element object is different */
+        width: 800,
+        height: 600
+    }
+}); 
 
 console.log(result); // SVG output
 ```

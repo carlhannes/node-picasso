@@ -1,7 +1,10 @@
 const picasso = require('./index');
 
-
 const result = picasso.chart({
+    element: {
+      width: 500,
+      height: 300,
+    },
     data: [{
       type: 'matrix',
       data: [
