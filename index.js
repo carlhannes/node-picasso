@@ -18,6 +18,8 @@ module.exports = {
         const element = document.querySelector('chart');
 
         mockglobal.window = window;
+        mockglobal.self = window;
+        mockglobal.navigator = { maxTouchPoints: 1 };
         mockglobal.document = document;
         mockglobal.Image = window.Image;
         mockglobal.Node = window.Node;
@@ -39,6 +41,7 @@ module.exports = {
 
         vm.runInContext(`${picasso}`, mockglobal);
         mockglobal.picasso = mockglobal.window.picasso;
+
         vm.runInContext('picasso.chart(args);', mockglobal);
         
         let xml = element.innerHTML;
